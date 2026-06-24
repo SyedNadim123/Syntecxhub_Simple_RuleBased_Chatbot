@@ -1,31 +1,60 @@
-SyntecxHub AI Internship - Project 1
+SyntecxHub AI Internship Project 1
 Simple Rule Based Chatbot
+
 About this project
-This project was built as part of the Artificial Intelligence Internship Program at SyntecxHub. The goal of this internship task was to design and build a simple rule based chatbot in Python that can hold a basic conversation, answer domain specific questions, and keep a record of every conversation it has.
-Why we built this chatbot
-The purpose of this project was to understand how conversational systems work before moving on to more advanced AI techniques. A rule based chatbot is the foundation of natural language processing systems. By building this from scratch, we learned how computers interpret human text input, how pattern matching can be used to detect intent, and how a simple knowledge base can be used to answer specific questions without using any external AI model or API. This project demonstrates the core logic that more advanced chatbots, including AI powered ones, are built on top of.
-What the chatbot does
-The chatbot runs in the console and waits for the user to type a message. Based on the message, it does one of the following things.
-It checks if the message matches an exit command such as bye or exit, and ends the conversation if it does.
-It checks if the message matches a question stored in the knowledge base, such as questions about SyntecxHub or the internship program, and replies with the correct answer.
-It checks if the message contains a greeting such as hi, hello, or hey, and responds with a greeting back.
-It checks if the message is asking for help, and explains what the chatbot can do.
-It checks if the message is asking how the chatbot is doing, and responds accordingly.
-If none of these match, it gives a fallback response letting the user know it did not understand the input.
-Every single message from the user and every reply from the chatbot is saved into a log file with a timestamp in the file name, so a complete record of the conversation is always available afterward.
-How we built it step by step
-Step one was creating the basic structure of the program. We built a loop that continuously asks the user for input using the input function, and the loop only stops when the user types bye or exit. This created the foundation for an interactive console based application.
-Step two was adding intent detection. We used simple keyword and pattern checking with if and elif statements to detect what kind of message the user sent. We grouped these into categories called intents, such as greeting, help, and small talk, and gave each one a fixed response.
-Step three was building a small knowledge base. We created a Python dictionary where the keys were common questions related to SyntecxHub and the internship program, and the values were the correct answers. When the user types a question that matches a key in this dictionary, the chatbot retrieves and prints the matching answer.
-Step four was adding conversation logging. We used the datetime module to generate a unique log file name every time the program runs, based on the exact date and time. We created a function that writes every message, both from the user and from the chatbot, into this log file using file handling in append mode. This way, nothing is lost even if the chatbot is run multiple times, since each run creates its own separate log file.
-Step five was improving the visual presentation. We installed and used the colorama library to add color to the console output, so that the user’s messages and the chatbot’s replies are easy to tell apart visually. This made the chatbot feel more polished and professional.
-Technologies used
-Python was used as the programming language for the entire project. The datetime module from the Python standard library was used to generate timestamped log file names. The colorama library was used to add color formatting to the console output. No external AI models, APIs, or paid services were used. The entire logic runs locally and offline.
-How to run this project
-Make sure Python is installed on your computer. Open the project folder in a code editor such as Visual Studio Code. Install the colorama library by running pip install colorama in the terminal. Run the chatbot using python chatbot.py. Type messages into the console and press enter to chat with the bot. Type bye or exit to end the conversation. After the conversation ends, a new log file will appear in the project folder containing the full transcript.
-Project files
-chatbot.py contains the full source code for the chatbot.
-The log files in this folder are sample transcripts generated automatically each time the chatbot is run, showing example conversations.
-Conclusion
-This project gave us hands on experience with core programming concepts including loops, conditional logic, dictionaries, functions, file handling, and third party library integration. It also gave us a clear understanding of how rule based natural language processing systems work, which is an important foundation before working with more advanced machine learning based chatbots in the future.
-Built as part of the SyntecxHub Artificial Intelligence Internship Program.
+
+This is Project 1 from the SyntecxHub Artificial Intelligence Internship. The task was to build a simple chatbot in Python that can chat with a user in the console, answer a few questions about SyntecxHub, and save the conversation to a file.
+
+Why we made this
+
+We wanted to learn how a chatbot actually works before jumping into anything complicated. A rule based chatbot is the simplest type there is, it just checks what the user typed and matches it against some fixed rules to decide what to reply. Building it ourselves helped us understand how text input is read, how to check for keywords in a sentence, and how to store a small set of questions and answers so the bot can look them up. This is the same basic idea that bigger chatbots use, just on a much smaller scale.
+
+What the chatbot can do
+
+When you run the program, it keeps asking you to type something in the console. Depending on what you type, it does one of these things.
+
+If you type bye or exit, it says goodbye and the program stops.
+
+If your message matches one of the questions we stored about SyntecxHub or the internship, it gives you the answer for that question.
+
+If your message has the word hi, hello or hey in it, it greets you back.
+
+If your message has the word help in it, it tells you what the bot can do.
+
+If your message asks how it is doing, it gives a short reply about that.
+
+If none of the above match, it just says it did not understand the message.
+
+Every message you type and every reply the bot gives gets saved into a text file. Each time you run the program, a new file is created with the date and time in its name, so you always have a record of that conversation.
+
+How we built it, step by step
+
+First we wrote a basic loop using the input function so the program keeps asking for text and only stops when you type bye or exit. This was just to get the chatbot running and talking back, even if it only repeated what you said at first.
+
+Next we added a way to check what kind of message the user sent. We did this with simple if and elif checks looking for certain words, like hi or hello for a greeting, or help when someone needs help. Each of these checks has its own reply.
+
+After that we added a small knowledge base. This is just a Python dictionary where each question is a key and the answer is the value. So when someone types a question that matches exactly, the bot looks it up in the dictionary and prints the answer.
+
+Then we added logging. We used the datetime module to create a file name based on the exact time the program started, so every run gets its own log file. Every time the bot or the user says something, it gets written into that file as well as shown on the screen, so nothing is lost.
+
+Last we added some color to the console using the colorama library, so the user's messages and the bot's replies show up in different colors and are easier to read.
+
+What we used
+
+Everything is written in plain Python. We used the datetime module that comes built into Python to create the log file names. We used a library called colorama to add colors to the text in the terminal. We did not use any AI model, any API, or any paid service, the whole thing runs on its own on your computer.
+
+How to run it
+
+Make sure Python is installed on your computer. Open this folder in a code editor like VS Code. Run this command once to install colorama, pip install colorama. Then run the chatbot by typing python chatbot.py. Once it starts, just type your messages and press enter. Type bye or exit when you want to stop. After you stop it, you will see a new log file appear in the folder with your conversation saved in it.
+
+Files in this project
+
+chatbot.py is the actual code for the chatbot.
+
+The log files are example conversations that were saved automatically when we tested the bot.
+
+What we learned
+
+This project helped us practice loops, if and elif conditions, dictionaries, functions, and writing to files in Python. We also learned how to use an outside library in our code and how a basic chatbot decides what to reply based on simple rules. This gives us a good base before trying anything more advanced later on.
+
+Made for the SyntecxHub Artificial Intelligence Internship.
